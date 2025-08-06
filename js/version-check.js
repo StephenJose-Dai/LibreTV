@@ -63,8 +63,8 @@ async function checkForUpdates() {
             }
         }
         
-        console.log('当前版本:', currentVersion);
-        console.log('最新版本:', latestVersion);
+        /**console.log('当前版本:', currentVersion);
+        console.log('最新版本:', latestVersion);*/
         
         // 清理版本字符串（移除可能的空格或换行符）
         const cleanCurrentVersion = currentVersion.trim();
@@ -118,7 +118,7 @@ function createErrorVersionElement(errorMessage) {
 }
 
 // 添加版本信息到页脚
-function addVersionInfoToFooter() {
+/**function addVersionInfoToFooter() {
     checkForUpdates().then(result => {
         if (!result) {
             // 如果版本检测失败，显示错误信息
@@ -155,6 +155,7 @@ function addVersionInfoToFooter() {
         } else {
             // 如果没有更新，显示当前版本为最新版本
             versionElement.innerHTML = `版本: ${result.currentFormatted} <span class="text-green-500">(最新版本)</span>`;
+            
         }
         
         // 显示版本元素
@@ -184,4 +185,4 @@ function displayVersionElement(element) {
 }
 
 // 页面加载完成后添加版本信息
-document.addEventListener('DOMContentLoaded', addVersionInfoToFooter);
+document.addEventListener('DOMContentLoaded', addVersionInfoToFooter);*/

@@ -561,17 +561,17 @@ function setupEventListeners() {
             localStorage.setItem(PLAYER_CONFIG.adFilteringStorage, e.target.checked);
         });
     }
-        // 豆瓣开关事件绑定
+// 豆瓣开关事件绑定
     const doubanToggle = document.getElementById('doubanToggle');
     if (doubanToggle) {
-       doubanToggle.addEventListener('change', function (e) {
+        doubanToggle.addEventListener('change', function (e) {
             localStorage.setItem('doubanEnabled', e.target.checked);
-        // 更新豆瓣区域显示状态
+            // 更新豆瓣区域显示状态
             if (typeof updateDoubanVisibility === 'function') {
-            updateDoubanVisibility();
-        }
-    });
-}
+                updateDoubanVisibility();
+            }
+        });
+    }
 }
 
 // 重置搜索区域

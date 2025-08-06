@@ -503,17 +503,6 @@ function toggleSettings(e) {
 
 // 设置事件监听器
 function setupEventListeners() {
-    // 豆瓣开关事件绑定
-const doubanToggle = document.getElementById('doubanToggle');
-if (doubanToggle) {
-    doubanToggle.addEventListener('change', function (e) {
-        localStorage.setItem('doubanEnabled', e.target.checked);
-        // 更新豆瓣区域显示状态
-        if (typeof updateDoubanVisibility === 'function') {
-            updateDoubanVisibility();
-        }
-    });
-}
     // 回车搜索
     document.getElementById('searchInput').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
@@ -563,6 +552,17 @@ if (doubanToggle) {
                 addAdultAPI();
             }
         });
+    // 豆瓣开关事件绑定
+    const doubanToggle = document.getElementById('doubanToggle');
+    if (doubanToggle) {
+       doubanToggle.addEventListener('change', function (e) {
+            localStorage.setItem('doubanEnabled', e.target.checked);
+        // 更新豆瓣区域显示状态
+            if (typeof updateDoubanVisibility === 'function') {
+            updateDoubanVisibility();
+        }
+    });
+}
     }
 
     // 广告过滤开关事件绑定

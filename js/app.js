@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 设置黄色内容过滤器开关初始状态
     const yellowFilterToggle = document.getElementById('yellowFilterToggle');
     if (yellowFilterToggle) {
-        yellowFilterToggle.checked = localStorage.getItem('yellowFilterEnabled') === 'false';
+        yellowFilterToggle.checked = localStorage.getItem('yellowFilterEnabled') === 'true';
     }
 
     // 设置广告过滤开关初始状态
@@ -503,6 +503,17 @@ function toggleSettings(e) {
 
 // 设置事件监听器
 function setupEventListeners() {
+    // 豆瓣开关事件绑定
+const doubanToggle = document.getElementById('doubanToggle');
+if (doubanToggle) {
+    doubanToggle.addEventListener('change', function (e) {
+        localStorage.setItem('doubanEnabled', e.target.checked);
+        // 更新豆瓣区域显示状态
+        if (typeof updateDoubanVisibility === 'function') {
+            updateDoubanVisibility();
+        }
+    });
+}
     // 回车搜索
     document.getElementById('searchInput').addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {

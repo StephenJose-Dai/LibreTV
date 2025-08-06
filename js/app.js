@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('selectedAPIs', JSON.stringify(selectedAPIs));
 
         // 默认选中过滤开关
-        localStorage.setItem('yellowFilterEnabled', 'true');
-        localStorage.setItem(PLAYER_CONFIG.adFilteringStorage, 'true');
+        localStorage.setItem('yellowFilterEnabled', 'false');
+        localStorage.setItem(PLAYER_CONFIG.adFilteringStorage, 'false');
 
         // 默认启用豆瓣功能
         localStorage.setItem('doubanEnabled', 'true');
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 设置黄色内容过滤器开关初始状态
     const yellowFilterToggle = document.getElementById('yellowFilterToggle');
     if (yellowFilterToggle) {
-        yellowFilterToggle.checked = localStorage.getItem('yellowFilterEnabled') === 'true';
+        yellowFilterToggle.checked = localStorage.getItem('yellowFilterEnabled') === 'false';
     }
 
     // 设置广告过滤开关初始状态
@@ -54,6 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
         adFilterToggle.checked = localStorage.getItem(PLAYER_CONFIG.adFilteringStorage) !== 'false'; // 默认为true
     }
 
+    // 👈 在这里添加豆瓣开关的初始状态设置
+    const doubanToggle = document.getElementById('doubanToggle');
+    if (doubanToggle) {
+        doubanToggle.checked = localStorage.getItem('doubanEnabled') === 'true';
+    }
     // 设置事件监听器
     setupEventListeners();
 

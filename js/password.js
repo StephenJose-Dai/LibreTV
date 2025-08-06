@@ -26,14 +26,14 @@ function isPasswordRequired() {
  * 在关键操作前都应该调用此函数
  */
 function ensurePasswordProtection() {
-    if (isPasswordRequired()) {
+    /**if (isPasswordRequired()) {
         showPasswordModal();
         throw new Error('Password protection is required');
     }
     if (isPasswordProtected() && !isPasswordVerified()) {
         showPasswordModal();
         throw new Error('Password verification required');
-    }
+    }*/
     return true;
 }
 
@@ -67,7 +67,7 @@ async function verifyPassword(password) {
 
 // 验证状态检查
 function isPasswordVerified() {
-    try {
+    /**try {
         if (!isPasswordProtected()) return true;
 
         const stored = localStorage.getItem(PASSWORD_CONFIG.localStorageKey);
@@ -79,9 +79,9 @@ function isPasswordVerified() {
         return timestamp && passwordHash === currentHash &&
             Date.now() - timestamp < PASSWORD_CONFIG.verificationTTL;
     } catch (error) {
-        console.error('检查密码验证状态时出错:', error);
-        return false;
-    }
+        console.error('检查密码验证状态时出错:', error);*/
+        return true;
+    /*}*/
 }
 
 // 更新全局导出
@@ -226,6 +226,8 @@ async function handlePasswordSubmit() {
  * 初始化密码验证系统
  */
 function initPasswordProtection() {
+    document.dispatchEvent(new CustomEvent('passwordVerified'));
+    return;
     // 如果需要强制设置密码，显示警告弹窗
     if (isPasswordRequired()) {
         showPasswordModal();

@@ -554,14 +554,15 @@ function setupEventListeners() {
         });
     }
 
-    // 广告过滤开关事件绑定
+// 广告过滤开关事件绑定
     const adFilterToggle = document.getElementById('adFilterToggle');
     if (adFilterToggle) {
         adFilterToggle.addEventListener('change', function (e) {
             localStorage.setItem(PLAYER_CONFIG.adFilteringStorage, e.target.checked);
         });
     }
-// 豆瓣开关事件绑定
+    
+    // 豆瓣开关事件绑定
     const doubanToggle = document.getElementById('doubanToggle');
     if (doubanToggle) {
         doubanToggle.addEventListener('change', function (e) {
